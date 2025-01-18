@@ -16,6 +16,7 @@ const handleSummarize = async (text) => {
         },
       }
     );
+    console.log('key',process.env.HUGGING_FACE_API_KEY);
 
     if (response.data && response.data[0] && response.data[0].summary_text) {
       return response.data[0].summary_text;
