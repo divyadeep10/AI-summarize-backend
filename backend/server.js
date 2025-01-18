@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+require('dotenv').config();
+const axios = require('axios');
 
 // Function to handle summarization using Hugging Face API
 const handleSummarize = async (text) => {
