@@ -21,7 +21,7 @@ const handleSummarize = async (text) => {
       },
       {
         headers: {
-          Authorization: `Bearer ${HUGGING_FACE_API_KEY}`, // Replace with your Hugging Face API token
+          Authorization: `Bearer ${process.env.HUGGING_FACE_API_KEY}`, // Replace with your Hugging Face API token
           'Content-Type': 'application/json',
         },
       }
