@@ -9,7 +9,11 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware to parse JSON requests
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+    origin: "*",  // Replace "*" with your frontend URL if you want to restrict origins
+    methods: "GET, POST, PUT, DELETE",
+    allowedHeaders: "Content-Type, Authorization",
+  }));
 
 // Function to handle summarization using Hugging Face API
 const handleSummarize = async (text) => {
