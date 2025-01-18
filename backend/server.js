@@ -1,19 +1,6 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const axios = require('axios');
-const cors = require('cors');
-require('dotenv').config();
-
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Middleware to parse JSON requests
-app.use(bodyParser.json());
-app.use(cors({
-    origin: "*",  // Replace "*" with your frontend URL if you want to restrict origins
-    methods: "GET, POST, PUT, DELETE",
-    allowedHeaders: "Content-Type, Authorization",
-  }));
+const router = express.Router();
 
 // Function to handle summarization using Hugging Face API
 const handleSummarize = async (text) => {
@@ -43,7 +30,7 @@ const handleSummarize = async (text) => {
 };
 
 // POST route for summarization
-app.post('/api/summarize', async (req, res) => {
+router.post('/summarize', async (req, res) => {
   const { text } = req.body;
 
   // Input validation
@@ -64,7 +51,4 @@ app.post('/api/summarize', async (req, res) => {
   }
 });
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+module.exports = router;
