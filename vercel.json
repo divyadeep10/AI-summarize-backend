@@ -11,9 +11,6 @@
         "src": "/api/(.*)",
         "dest": "backend/server.js"
       }
-    ],
-    "env": {
-      "HUGGING_FACE_API_KEY": "@key"
-    }
+    ]
   }
   
